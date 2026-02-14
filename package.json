@@ -1,27 +1,32 @@
 {
   "name": "dependency-health-dashboard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Scan project dependencies for outdated versions, CVEs, and license issues — E2E test for nexus-agents orchestration",
   "type": "module",
-  "main": "dist/index.js",
-  "bin": {
-    "dep-health": "dist/cli.js"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamzujkowski/dependency-health-dashboard.git"
   },
+  "keywords": ["dependency", "security", "CVE", "license", "nexus-agents"],
+  "engines": { "node": ">=22" },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": { "dep-health": "dist/cli.js" },
+  "exports": {
+    ".": { "import": "./dist/index.js", "types": "./dist/index.d.ts" }
+  },
+  "files": ["dist", "src", "README.md"],
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/cli.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["dependency", "security", "CVE", "license", "nexus-agents"],
-  "license": "MIT",
-  "engines": {
-    "node": ">=22"
-  },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.7.0",
-    "vitest": "^3.2.0",
-    "tsx": "^4.19.0"
+    "vitest": "^3.2.0"
   }
 }
